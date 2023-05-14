@@ -4,9 +4,9 @@ let highScore = 0;
 let correctCount = 0;
 
 let similarSaturation = 80;
-let similarLightness = 40;
-let differentSaturation = 60;
-let differentLightness = 35;
+let similarLightness = 30;
+let differentSaturation = 55;
+let differentLightness = 25;
 
 generateSquares();
 
@@ -72,7 +72,7 @@ function handleCorrect() {
     const scoreDisplay = document.getElementById("score");
     scoreDisplay.innerHTML = `Sua Pontuação: <b>${score}</b>`;
 
-    if (correctCount > 1) {
+    if (correctCount > 4) {
         adjustDifficulty();
         correctCount = 0;
     }
@@ -81,10 +81,11 @@ function handleCorrect() {
 }
 
 function adjustDifficulty() {
-    similarSaturation = Math.max(similarSaturation - 1, 50);
-    similarLightness = Math.min(similarLightness + 1, 60);
-    differentSaturation = Math.min(differentSaturation + 1, 60);
-    differentLightness = Math.max(differentLightness + 1, 30);
+    similarLightness = Math.min(similarLightness + 1, 50); // Vai de 45 até no máximo 50
+    differentLightness = Math.min(differentLightness + 1, 51); //Vai de 35 até no máximo 45
+
+    similarSaturation = Math.max(similarSaturation - 1, 70); //Vai de 80 até no mínimo 70
+    differentSaturation = Math.min(differentSaturation + 1, 69); //Vai de 70 até no mínimo 65
 }
 
 
@@ -94,9 +95,9 @@ function handleWrong() {
     const scoreDisplay = document.getElementById("score");
     let message = `Não consegue né Moisés? Fim de Jogo :(<br>Last Score: <b>${score}</b>`;
     similarSaturation = 80;
-    similarLightness = 40;
-    differentSaturation = 60;
-    differentLightness = 35;
+    similarLightness = 30;
+    differentSaturation = 55;
+    differentLightness = 25;
   
     if (score > highScore) {
         highScore = score;
