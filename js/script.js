@@ -81,11 +81,11 @@ function handleCorrect() {
 }
 
 function adjustDifficulty() {
-    similarLightness = Math.min(similarLightness + 1, 50); // Vai de 45 até no máximo 50
-    differentLightness = Math.min(differentLightness + 1, 51); //Vai de 35 até no máximo 45
+    similarLightness = Math.min(similarLightness + 1, 50);
+    differentLightness = Math.min(differentLightness + 1, 51);
 
-    similarSaturation = Math.max(similarSaturation - 1, 70); //Vai de 80 até no mínimo 70
-    differentSaturation = Math.min(differentSaturation + 1, 69); //Vai de 70 até no mínimo 65
+    similarSaturation = Math.max(similarSaturation - 1, 70);
+    differentSaturation = Math.min(differentSaturation + 1, 69);
 }
 
 

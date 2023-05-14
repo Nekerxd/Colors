@@ -15,8 +15,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2em;
-  padding: 2em;
+  gap: 0.8em;
 }
 
 #game {
@@ -49,13 +48,13 @@ div, p {
 #score {
   text-align: center;
   line-height: 2;
-  padding: 1em 3em;
+  padding: 0.8em 3em;
   border: 1px solid hsl(0, 0%, 93%);
   border-radius: 10px;
 }
 
 #try-again {
-  padding: 1em 3em;
+  padding: 0.8em 3em;
   font-weight: 700;
   font-size: 18px;
   background-color: hsl(0, 0%, 93%);
@@ -68,4 +67,9 @@ div, p {
 #try-again:hover {
   background-color: hsl(0, 0%, 85%);
   transition: background-color 0.3s ease;
+}
+
+.credits {
+  justify-content: center;
+  padding-top: 2%;
 }
