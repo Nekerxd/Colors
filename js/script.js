@@ -2,6 +2,8 @@ const gameContainer = document.getElementById("game");
 let score = 0;
 let highScore = 0;
 let correctCount = 0;
+let countdown;
+let timeLeft = 10;
 
 let similarSaturation = 80;
 let similarLightness = 30;
@@ -63,6 +65,10 @@ function tryAgain() {
         game.style.pointerEvents = "auto";
         tryAgainButton.innerHTML = ``;
         tryAgainButton.style.display = "none";
+
+        clearInterval(countdown);
+        timeLeft = 10;
+        startTimer();
     })
 }
 
@@ -72,12 +78,15 @@ function handleCorrect() {
     const scoreDisplay = document.getElementById("score");
     scoreDisplay.innerHTML = `Sua Pontuação: <b>${score}</b>`;
 
-    if (correctCount > 1) {
+    if (correctCount != 0) {
         adjustDifficulty();
         correctCount = 0;
     }
 
     generateSquares();
+    clearInterval(countdown);
+    timeLeft = 10;
+    startTimer();
 }
 
 function adjustDifficulty() {
@@ -112,4 +121,23 @@ function handleWrong() {
     
     scoreDisplay.innerHTML = message;
     tryAgain();
+
+    clearInterval(countdown);
 }
+
+function startTimer() {
+    document.getElementById("countdown").textContent = timeLeft;
+    countdown = setInterval(updateTimer, 1000);
+}
+  
+function updateTimer() {
+    timeLeft--;
+  
+    if (timeLeft === 0) {
+        clearInterval(countdown);
+        handleWrong();
+    }
+  
+    document.getElementById("countdown").textContent = timeLeft;
+  }
+  
