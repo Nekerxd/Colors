@@ -72,7 +72,7 @@ function handleCorrect() {
     const scoreDisplay = document.getElementById("score");
     scoreDisplay.innerHTML = `Sua Pontuação: <b>${score}</b>`;
 
-    if (correctCount > 4) {
+    if (correctCount > 1) {
         adjustDifficulty();
         correctCount = 0;
     }
